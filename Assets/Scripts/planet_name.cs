@@ -12,6 +12,7 @@ public class planet_name : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        planet = transform.parent.gameObject;
         p_name = GetComponent<TextMeshPro>();
         p_name.text = planet.name;
     }
