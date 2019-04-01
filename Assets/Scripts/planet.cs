@@ -14,6 +14,7 @@ public class planet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        sun = GameObject.FindGameObjectWithTag("sun");
     }
 
     // Update is called once per frame

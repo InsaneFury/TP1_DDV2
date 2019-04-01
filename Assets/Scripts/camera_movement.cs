@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [RequireComponent(typeof(Camera))]
 public class camera_movement : MonoBehaviour {
 
-    public List<Transform> targets;
+    public List<Transform> targets = new List<Transform>();
 
     public float smoothTime = .5f;
     Vector3 velocity;
@@ -43,7 +44,7 @@ public class camera_movement : MonoBehaviour {
             Move();
             Zoom();
 
-            //print("Actual Planet: " + targets[counter].name);
+            print("Actual Planet: " + targets[counter].name);
         }
         
         //Stop coroutine and start again

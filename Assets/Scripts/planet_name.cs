@@ -12,9 +12,10 @@ public class planet_name : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        cam = Camera.main;
         planet = transform.parent.gameObject;
         p_name = GetComponent<TextMeshPro>();
-        p_name.text = planet.name;
+        p_name.text = planet.name.Replace("(Clone)", "");
     }
 
     // Update is called once per frame
