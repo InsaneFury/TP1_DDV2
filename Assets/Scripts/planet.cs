@@ -14,7 +14,6 @@ public class planet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("Este planeta se llama: " + gameObject.name);
     }
 
     // Update is called once per frame
