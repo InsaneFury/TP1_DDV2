@@ -6,7 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(Camera))]
 public class camera_movement : MonoBehaviour {
 
-    public List<Transform> targets = new List<Transform>();
+    public static List<GameObject> targets;
 
     public float smoothTime = .5f;
     Vector3 velocity;
@@ -27,6 +27,7 @@ public class camera_movement : MonoBehaviour {
     bool start_looking_planets;
 
     private void Start() {
+        targets = new List<GameObject>();
         counter = 0;
         cam = GetComponent<Camera>();
         defaultCamRot = cam.transform.rotation;
@@ -44,7 +45,7 @@ public class camera_movement : MonoBehaviour {
             Move();
             Zoom();
 
-            print("Actual Planet: " + targets[counter].name);
+            
         }
         
         //Stop coroutine and start again
@@ -70,14 +71,14 @@ public class camera_movement : MonoBehaviour {
     }
 
     Vector3 GetCenterPoint() {
-        var bounds = new Bounds(targets[counter].position, Vector3.zero);
-        bounds.Encapsulate(targets[counter].position);
+        Bounds bounds = new Bounds(targets[counter].transform.position, Vector3.zero);
+        bounds.Encapsulate(targets[counter].transform.position);
         return bounds.center;
     }
 
      float GetTargetSize() {
 
-        return targets[counter].localScale.x;
+        return targets[counter].transform.localScale.x;
      }
 
     //Waiting to change target for looking
@@ -90,6 +91,7 @@ public class camera_movement : MonoBehaviour {
             else {
                 counter++;
             }
+            print("Actual Planet: " + targets[counter].name);
         }
     }
     //Waiting to start looking planets
