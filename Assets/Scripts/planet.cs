@@ -2,26 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class planet : MonoBehaviour
+public class Planet : MonoBehaviour
 {
-
+    [Header("PlanetSettings")]
     public GameObject sun;
     public float ratio;
     public float speed;
+
     float actual_position;
     float rotation_x, rotation_z;
 
-    // Start is called before the first frame update
     void Start()
     {
         sun = GameObject.FindGameObjectWithTag("sun");
     }
 
-    // Update is called once per frame
     void Update()
     {
         actual_position += Time.deltaTime * speed;
-
 
         rotation_x = sun.transform.position.x + ratio * Mathf.Cos(actual_position);
         rotation_z = sun.transform.position.z + ratio * Mathf.Sin(actual_position);

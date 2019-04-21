@@ -3,21 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class UI_planet_name : MonoBehaviour
+public class UIPlanetText : MonoBehaviour
 {
+    [Header("UI Settings")]
     public List<Transform> planets;
     TextMeshProUGUI planet_name;
 
-    // Start is called before the first frame update
     void Start()
     {
         planet_name = GetComponent<TextMeshProUGUI>();
-        planet_name.text = planets[camera_movement.counter].name;
+        planet_name.text = planets[CameraMovement.counter].name;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        planet_name.text = planets[camera_movement.counter].name;
+        planet_name.text = planets[CameraMovement.counter].name;
     }
 }
